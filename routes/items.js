@@ -7,7 +7,9 @@ router.get('/', function ( req, res ) {
 
   Items.find(function ( err, items ) {
     if (err) return console.error(err);
-    res.send( items )
+    res.render( 'items', {
+      items : items
+    } )
   } )
 
 } )

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>List of items</title>
+	</head>
+	<body>
+		<h1>List of items</h1>
+		{{#items}}
+				<table>
+					<th>Product Code</th>
+					<th>Item Name</th>
+					<th>Price</th>
+					<th>Location</th>
+					<tr>
+						<td>{{ productCode }}</td>
+						<td>{{ itemName }}</td>
+						<td>{{ price }}</td>
+						<td>{{ location }}</td>
+					</tr>
+				</table>
+		{{/items}}
+	</body>
+</html>
