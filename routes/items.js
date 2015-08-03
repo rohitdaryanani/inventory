@@ -25,7 +25,12 @@ router.post('/', function ( req, res ) {
 
   item.save( function ( err, item ) {
     if( err ) return console.error( err )
-    res.send( item );
+    // res.send( item );
+    // res.render(  'item', {
+    //   action : 'Added',
+    //   item   :item
+    // } )
+    res.redirect("/items");
   } )
 
 } )

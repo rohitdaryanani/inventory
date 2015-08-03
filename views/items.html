@@ -5,22 +5,32 @@
 		<title>List of items</title>
 	</head>
 	<body>
-		<h1>List of items</h1>
-		{{#each items}}
-			{{#if productCode}}
-				<table>
-					<th>Product Code</th>
-					<th>Item Name</th>
-					<th>Price</th>
-					<th>Location</th>
+
+		<form action="/items" method="post">
+			<input type="text" name="productCode" placeholder="product code">
+			<input type="text" name="itemName" placeholder="item name">
+			<input type="text" name="price" placeholder="price">
+			<input type="text" name="location" placeholder="location">
+			<input type="submit">
+		</form>
+
+		<h3>List of items</h3>
+		<table>
+			<th>Product Code</th>
+			<th>Item Name</th>
+			<th>Price</th>
+			<th>Location</th>
+			{{#each items}}
+				{{#if productCode}}
 					<tr>
 						<td>{{ productCode }}</td>
 						<td>{{ itemName }}</td>
 						<td>{{ price }}</td>
 						<td>{{ location }}</td>
 					</tr>
-				</table>
 			{{/if}}
 		{{/each}}
+		</table>
+
 	</body>
 </html>
