@@ -6,7 +6,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var mongoose     = require('mongoose');
 var hbs          = require('hbs');
+var flash        = require('connect-flash');
+var session      = require('express-session');
 
+//  routes
 var routes = require('./routes/index');
 var users  = require('./routes/users');
 var items  = require('./routes/items')
@@ -23,9 +26,11 @@ app.engine('html', hbs.__express);
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
+app.use(cookieParser('secret'));
 app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({cookie: { maxAge: 60000 }}));
+app.use(flash());
 
 // Routes
 app.use('/', routes);

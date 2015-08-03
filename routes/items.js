@@ -8,7 +8,8 @@ router.get('/', function ( req, res ) {
   Items.find(function ( err, items ) {
     if (err) return console.error(err);
     res.render( 'items', {
-      items : items
+      items   : items,
+      message : req.flash('info')
     } )
   } )
 
@@ -25,14 +26,11 @@ router.post('/', function ( req, res ) {
 
   item.save( function ( err, item ) {
     if( err ) return console.error( err )
-    // res.send( item );
-    // res.render(  'item', {
-    //   action : 'Added',
-    //   item   :item
-    // } )
+    req.flash('info', 'Item added!')
     res.redirect("/items");
   } )
 
 } )
 
 module.exports = router;
+
