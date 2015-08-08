@@ -1,32 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{ title }}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+	<title>{{ title }}</title>
+	<link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+	{{> header }}
 
-  	<div class="header">
-  		<div class="left">
-		    <h1>{{ title }}</h1>
-		    <span>version {{ version }}</span>
-  		</div>
-  		<div class="right-nav">
-	    	<nav class="right-nav">Welcome ( Guest ) <a href="/signup">Sign Up</a> | <a href="/login">Log In</a></nav>
-  		</div>
-  	</div>
+	<div class="content">
+		<p>{{message}}</p>
+		<p>content goes here</p>
+	</div>
 
-  	<div class="content">
-	    <p>{{message}}</p>
-	    <p>content goes here</p>
-  	</div>
-
-  	<div class="footer">
-  		<p>
-  			<span class="copy-rights">© 2013 - 2014 <a href="www.rohitdaryanani.com">Rohit Daryanani</a> All rights reserved.</span>
-  			<span class="github">Fork this project on <a href="#">Github</a></span>
-  		</p>
-  	</div>
-
+	{{> footer }}
   </body>
 </html>
