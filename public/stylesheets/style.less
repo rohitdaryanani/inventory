@@ -1,8 +1,63 @@
+// color listing from kuler
+@red         : #E74C3C;
+@white       : #ECF0F1;
+@light-blue  : #3498DB;
+@dark-blue   : #2980B9;
+@light-black : #2C3E50;
+
+
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding          : 50px;
+  font             : 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color : @white;
+  // border           : 1px solid black;
+  margin           : 0;
+  padding          : 0;
+  background-color: @light-black;
+  color: @white;
+
+}
+
+.offset {
+	padding : 1% 10%;
+}
+
+.header {
+	.offset;
+	color: @white;
+	background-color : @dark-blue;
+	h1 {
+		margin-top : 0
+	}
+	.right-nav {
+		float: right;
+		margin-top: -20px;
+	}
+
+	a {
+	  color : @white;
+	  font-weight: bolder;
+	  text-decoration : none;
+	}
+
+}
+
+.content {
+	.offset;
+	background-color : @white;
+	min-height : 300px;
+	color: @light-black;
+}
+
+.footer {
+	.offset;
+	.github {
+		float: right;
+	}
 }
 
 a {
-  color: #00B7FF;
+  color: @light-blue;
+  text-decoration : none;
 }
