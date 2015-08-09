@@ -15,4 +15,16 @@ router.get('/flash', function(req, res){
   res.redirect('/');
 });
 
+router.get('/login', function ( req, res, next ) {
+	res.render('login')
+})
+
+router.post('/login', function ( req, res, next ) {
+	var username = req.body.username;
+	var password = req.body.password;
+
+	console.log(username)
+	console.log(password)
+} )
+
 module.exports = router;
