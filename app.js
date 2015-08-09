@@ -30,7 +30,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser('secret'));
 app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({cookie: { maxAge: 60000 }}));
+app.use(session(
+  {
+    secret: 'notsosecretkey123'
+  },
+  {cookie:
+    { maxAge: 60000 }
+  }
+));
 app.use(flash());
 
 // Routes
