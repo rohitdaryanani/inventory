@@ -7,9 +7,55 @@
   <body>
 	{{> header }}
 
-	<div class="content">
+	<div class="content content-index">
+
+		<div class="left-nav">
+			<h2>
+				<strong>
+					Greetings !
+				</strong>
+			</h2>
+			<p>
+				Hello and welcome to inventory. A simple inventory app powered by node.js and express web framework.
+			</p>
+			<p>
+				Sign up now, and start tracking your items.
+			</p>
+		</div>
+
+		<div class="right-nav">
+			<div class="sign-up">
+				<h2>
+					Don't have an account yet?
+				</h2>
+				<h4 class="sub">
+					Sign up now it's free!
+				</h4>
+				<hr>
+				<form action="/signup" method="post" class="signup-form">
+					<div class="credentials">
+						<label for="username">
+							<p>Choose a username</p>
+							<input type="text" name="username" id="username" placeholder="Username">
+						</label>
+						<label for="email">
+							<p>Enter your email address</p>
+							<input type="email" name="email" id="email" placeholder="e.g johndoe@xxx.com">
+						</label>
+						<label for="password">
+							<p>Enter your email address</p>
+							<input type="password" name="password" id="password" placeholder="Password">
+						</label>
+						<p class="login">
+							Already have an account ? <a href="#">Log In Here!</a>
+						</p>
+						<input type="Submit" value="SIGN UP NOW!">
+					</div>
+				</form>
+			</div>
+		</div>
+
 		<p>{{message}}</p>
-		<p>content goes here</p>
 	</div>
 
 	{{> footer }}
