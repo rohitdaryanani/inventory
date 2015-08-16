@@ -6,7 +6,7 @@
 		<link rel="stylesheet" href="/stylesheets/style.css">
 	</head>
 	<body>
-
+		{{> header }}
 		<form action="/items" method="post">
 			<input type="text" name="productCode" placeholder="product code">
 			<input type="text" name="itemName" placeholder="item name">
@@ -31,9 +31,9 @@
 						<td>{{ price }}</td>
 						<td>{{ location }}</td>
 					</tr>
-			{{/if}}
-		{{/each}}
+				{{/if}}
+			{{/each}}
 		</table>
-
+	{{> footer }}
 	</body>
 </html>

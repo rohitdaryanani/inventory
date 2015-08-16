@@ -12,7 +12,9 @@ router.get('/', function(req, res, next) {
 	res.render('index', {
 		title   : 'Inventory',
 		version : 1.0,
-		message: req.flash('info')
+		message : req.flash('info'),
+      	user    : session.username
+
 	});
 });
 
@@ -37,9 +39,6 @@ router.post('/login', function ( req, res, next ) {
 	var password = req.body.password;
 	session = req.session;
 	session.username = username;
-
-	console.log(username)
-	console.log(password)
 
 	res.redirect('/items')
 } )
