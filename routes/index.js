@@ -30,18 +30,30 @@ router.get('/login', function ( req, res, next ) {
 	if (session.username) {
 		res.redirect('/items')
 		return;
-	}else {
-		res.render('login')
+	} else {
+		res.render('login', {
+			message : req.flash('info')
+		} )
 	}
-})
+} )
 
 router.post('/login', function ( req, res, next ) {
 	var username = req.body.username;
 	var password = req.body.password;
-	session = req.session;
-	session.username = username;
 
-	res.redirect('/items')
+	Users.findOne( {'username' : username }, function ( err, result ) {
+		if ( err ) return console.error( err );
+		console.log( result );
+		if ( result.username === username && result.password === password) {
+			session = req.session;
+			session.username = username;
+			res.redirect('/items')
+		} else {
+			req.flash('info', 'invalid username or password');
+			res.redirect('/login');
+		}
+	} )
+
 } )
 
 router.post('/signup', function ( req, res, end ) {
