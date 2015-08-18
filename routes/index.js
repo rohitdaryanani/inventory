@@ -60,6 +60,11 @@ router.post('/login', function ( req, res, next ) {
 	} )
 } )
 
+router.get('/logout', function (req, res, next) {
+	req.session.destroy();
+	res.redirect('/');
+})
+
 router.post('/signup', function ( req, res, end ) {
 	var user = new Users ( {
 		username : req.body.username,
