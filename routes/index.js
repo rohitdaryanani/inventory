@@ -1,11 +1,16 @@
 var express = require('express');
 var router  = express.Router();
 var Users   = require('../models/users');
+var bcrypt  = require('bcrypt');
 var session;
 
+// Salt
+var salt = '$2a$10$fdGkCx51MTgjpRno1WLWNO';
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	session = req.session;
+	var salt = bcrypt.genSaltSync(10);
+	console.log(salt);
 	if( session.username ) {
 		res.redirect('/items');
 		return;
@@ -39,11 +44,11 @@ router.get('/login', function ( req, res, next ) {
 
 router.post('/login', function ( req, res, next ) {
 	var username = req.body.username;
-	var password = req.body.password;
+	var password = bcrypt.hashSync( req.body.password, salt );
 
 	Users.findOne( {'username' : username }, function ( err, result ) {
 		if ( err ) return console.error( err );
-		console.log( result );
+
 		if ( result.username === username && result.password === password) {
 			session = req.session;
 			session.username = username;
@@ -53,14 +58,13 @@ router.post('/login', function ( req, res, next ) {
 			res.redirect('/login');
 		}
 	} )
-
 } )
 
 router.post('/signup', function ( req, res, end ) {
 	var user = new Users ( {
 		username : req.body.username,
 		email    : req.body.email,
-		password : req.body.password
+		password : bcrypt.hashSync( req.body.password, salt)
 	} )
 
 	user.save( function ( err, user ) {
@@ -69,12 +73,11 @@ router.post('/signup', function ( req, res, end ) {
 			res.redirect('/');
 			req.flash('info', 'unable to signup');
     	}
+    	console.log( user );
 		session          = req.session;
 		session.username = user.username
  		res.redirect('/items');
 	} )
-
-
 } )
 
 module.exports = router;
