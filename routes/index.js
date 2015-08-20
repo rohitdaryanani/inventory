@@ -9,8 +9,6 @@ var salt = '$2a$10$fdGkCx51MTgjpRno1WLWNO';
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	session = req.session;
-	var salt = bcrypt.genSaltSync(10);
-	console.log(salt);
 	if( session.username ) {
 		res.redirect('/items');
 		return;
@@ -26,7 +24,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/flash', function(req, res){
 	session = req.session;
-	req.flash('info', session.username)
+	req.flash('info', 'session.username')
 	res.redirect('/');
 });
 
@@ -73,12 +71,24 @@ router.post('/signup', function ( req, res, end ) {
 	} )
 
 	user.save( function ( err, user ) {
-    	if( err ) {
-    		return console.error( err )
+    	if( err.message.indexOf('duplicate key error') > -1 ) {
+			req.flash( 'info', 'username or email already exist.' );
 			res.redirect('/');
-			req.flash('info', 'unable to signup');
+			console.error( err.message )
     	}
-    	console.log( user );
+
+    	if ( err.message.indexOf('Users validation failed') > -1 ) {
+    		req.flash( 'info', 'Please fill in all fields.' );
+			res.redirect('/');
+			console.error( err.message )
+    	}
+
+    	if ( err ) {
+    		req.flash('ooops something went wrong, Please try again.')
+    		res.redirect('/');
+    		console.error(err);
+    	}
+
 		session          = req.session;
 		session.username = user.username
  		res.redirect('/items');
