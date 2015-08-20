@@ -6,12 +6,11 @@ var Items = require('../models/items');
 
 router.get('/', function ( req, res ) {
   session = req.session;
-  console.log(session.username);
   if ( !session.username ) {
     res.redirect('/login')
     return;
   }
-  Items.find(function ( err, items ) {
+  Items.where('user', session.username).find(function ( err, items ) {
     if (err) return console.error(err);
     res.render( 'items', {
       items   : items,
@@ -23,12 +22,14 @@ router.get('/', function ( req, res ) {
 } )
 
 router.post('/', function ( req, res ) {
+  session = req.session;
 
   var item = new Items( {
     productCode : req.body.productCode,
     itemName    : req.body.itemName,
     price       : req.body.price,
-    location    : req.body.location
+    location    : req.body.location,
+    user        : session.username
   } )
 
   item.save( function ( err, item ) {
