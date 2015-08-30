@@ -7,33 +7,58 @@
 	</head>
 	<body>
 		{{> header }}
-		<form action="/items" method="post">
-			<input type="text" name="productCode" placeholder="product code">
-			<input type="text" name="itemName" placeholder="item name">
-			<input type="text" name="price" placeholder="price">
-			<input type="text" name="location" placeholder="location">
-			<input type="submit">
-		</form>
 
-		<p>{{message}}</p>
+		<div class="content content-items">
+			<div class="left-nav">
+				<h3>List of items</h3>
+				<table>
+					<th>Product Code</th>
+					<th>Item Name</th>
+					<th>Price</th>
+					<th>Location</th>
+					{{#each items}}
+						{{#if productCode}}
+							<tr>
+								<td>{{ productCode }}</td>
+								<td>{{ itemName }}</td>
+								<td>{{ price }}</td>
+								<td>{{ location }}</td>
+							</tr>
+						{{/if}}
+					{{/each}}
+				</table>
+			</div>
 
-		<h3>List of items</h3>
-		<table>
-			<th>Product Code</th>
-			<th>Item Name</th>
-			<th>Price</th>
-			<th>Location</th>
-			{{#each items}}
-				{{#if productCode}}
-					<tr>
-						<td>{{ productCode }}</td>
-						<td>{{ itemName }}</td>
-						<td>{{ price }}</td>
-						<td>{{ location }}</td>
-					</tr>
-				{{/if}}
-			{{/each}}
-		</table>
+			<div class="right-nav">
+				<h3>Register New Item.</h3>
+				<hr>
+				<p class="error">{{message}}</p>
+				<form action="/items" method="post" class="item-form">
+					<div class="item-details">
+						<label for="productCode">
+							<p>Product Code</p>
+							<input type="text" name="productCode" placeholder="product code">
+						</label>
+						<label for="itemName">
+							<p>Item Name</p>
+							<input type="text" name="itemName" placeholder="item name">
+						</label>
+						<label for="price">
+							<p>Price</p>
+							<input type="text" name="price" placeholder="price">
+						</label>
+						<label for="location">
+							<p>Location</p>
+							<input type="text" name="location" placeholder="location">
+						</label>
+						<br/>
+						<br/>
+						<input type="submit" value="Add Item">
+					</div>
+				</form>
+			</div>
+		</div>
+
 	{{> footer }}
 	</body>
 </html>
