@@ -9,7 +9,7 @@
 @grey : #999;
 
 // MAIN STYLE
-h1 {
+h1, h2 {
 	margin: 0 0 10px 0;
 }
 
@@ -67,6 +67,53 @@ body {
 	}
 	.right-nav {
     	padding-left : 20px;
+	}
+	// EXTRA SHIT
+	.sign-up {
+		margin-left    : 20px;
+		.sub {
+			color : @grey;
+		}
+		.credentials {
+			p {
+				font-weight   : bold;
+				margin-bottom : 7px;
+			}
+			.login {
+				margin      : 30px 0;
+				font-weight : normal;
+				a {
+					font-weight : bolder;
+				}
+			}
+		}
+	}
+}
+
+.content-login {
+	padding-top: 1%;
+	.login-form {
+		width: 25%;
+		margin: auto;
+		h2 {
+			margin-top: 15%;
+		}
+	}
+	// EXTRA SHIT
+	.credentials {
+		padding-top : 10px;
+		p {
+			font-weight   : bold;
+			margin-bottom : 7px;
+		}
+
+		.signup {
+			margin      : 30px 0;
+			font-weight : normal;
+			a {
+				font-weight : bolder;
+			}
+		}
 	}
 }
 
@@ -134,128 +181,6 @@ a {
 
 .error {
 	color: @red;
+	padding-left: 20px;
 }
-
-
-// .header {
-// 	.offset;
-// 	color            : @white;
-// 	background-color : @dark-blue;
-// 	// padding-top      : 1%;
-// 	// padding-bottom   : 1%;
-// 	// width            : 960px;
-// 	h1 {
-// 		margin-top : 0
-// 	}
-// 	.left-nav{
-// 		// width        : 50%;
-// 		margin-right : 0px;
-// 		display      : inline-block;
-// 	}
-// 	.right-nav {
-// 		// width   : 50%;
-// 		display : inline-block;
-// 		float   : right;
-// 		nav {
-// 			margin-top : 28px;
-// 			text-align : right;
-// 		}
-// 	}
-
-// 	a {
-// 	  color           : @white;
-// 	  font-weight     : bolder;
-// 	  text-decoration : none;
-// 	}
-
-// }
-
-// .content {
-// 	.offset;
-// 	background-color : white;
-// 	color            : @light-black;
-// 	overflow         : auto;
-// }
-
-// .content-login {
-// 	padding-top    : 1%;
-// 	padding-bottom : 1%;
-
-// 	.login-form {
-// 		padding-bottom : 40px;
-// 		width: 50%;
-// 		margin: auto;
-// 	}
-
-// 	.form-hr;
-
-// 	.credentials {
-// 		padding-top : 10px;
-// 		p {
-// 			font-weight   : bold;
-// 			margin-bottom : 7px;
-// 		}
-
-// 		.signup {
-// 			margin      : 30px 0;
-// 			font-weight : normal;
-// 			a {
-// 				font-weight : bolder;
-// 			}
-// 		}
-
-// 	}
-
-// }
-
-// .content-index {
-// 	.left-nav {
-// 		padding-top    : 1%;
-// 		padding-bottom : 1%;
-// 		width          : 49%;
-// 		margin-right   : 0px;
-// 		display        : inline-block;
-// 	}
-
-// 	.right-nav {
-// 		padding-top    : 1%;
-// 		padding-bottom : 1%;
-// 		width          : 49%;
-// 		float          : right;
-// 		border-left    : 1px dashed @light-black;
-// 		.sign-up {
-// 			margin-left    : 20px;
-// 			padding-bottom : 40px;
-// 			.sub {
-// 				color : @grey;
-// 			}
-// 			.credentials {
-// 				p {
-// 					font-weight   : bold;
-// 					margin-bottom : 7px;
-// 				}
-// 				.login {
-// 					margin      : 30px 0;
-// 					font-weight : normal;
-// 					a {
-// 						font-weight : bolder;
-// 					}
-// 				}
-// 			}
-// 			.form-hr;
-// 		}
-// 	}
-// }
-
-// .footer {
-// 	.offset;
-// 	.github {
-// 		float : right;
-// 	}
-// 	padding-top : 2%;
-// }
-
-// a {
-//   color           : @light-blue;
-//   text-decoration : none;
-// }
+// END OF COMMON
