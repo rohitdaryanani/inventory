@@ -8,181 +8,251 @@
 // Additional colors
 @grey : #999;
 
-// mixins
-.offset {
-	padding : 0% 16%;
-}
-.form-hr {
-	hr {
-		height           : 1px;
-		border           : medium none;
-		background-color : #EFEFEF;
-	}
+h1 {
+	margin: 0 0 10px 0;
 }
 
-.input-size {
-	padding : 10px;
-    width   : 300px;
-}
 body {
-  padding          : 50px;
   font             : 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color : @white;
+  background-color : @light-black;
+  color            : @white;
   margin           : 0;
-  padding          : 0;
-  background-color: @light-black;
-  color: @white;
-
 }
-
-input[type=text] {
-	.input-size;
-}
-
-input[type=password] {
-	.input-size;
-}
-
-input[type=email] {
-	.input-size;
-}
-
-input[type=submit] {
-	min-width        : 100px;
-	background-color : #3498DB;
-	border           : 1px solid #2980B9;
-	font-weight      : bold;
-	color            : #ECF0F1;
-	padding          : 12px;
-	outline          : 2px solid #EFEFEF;
-	cursor           : pointer;
-	font-size        : 14px;
-
-	&:hover{
-		background-color : white;
-		color            : #2980B9;
-	}
-}
-
 
 .header {
-	.offset;
 	color            : @white;
 	background-color : @dark-blue;
-	padding-top      : 1%;
-	padding-bottom   : 1%;
-	h1 {
-		margin-top : 0
-	}
-	.left-nav{
-		width        : 50%;
-		margin-right : 0px;
-		display      : inline-block;
-	}
-	.right-nav {
-		width   : 50%;
+	min-height       : 60px;
+	width            : 90%;
+	padding: 1% 5%;
+
+	.left-nav, .right-nav {
 		display : inline-block;
-		float   : right;
-		nav {
-			margin-top : 28px;
-			text-align : right;
-		}
+		float   : left;
+		width   : 50%;
 	}
 
-	a {
-	  color           : @white;
-	  font-weight     : bolder;
-	  text-decoration : none;
+	.right-nav {
+	    text-align : right;
+	    margin-top : 20px;
 	}
-
 }
 
 .content {
-	.offset;
+	width            : 90%;
+	padding          : 0 5%;
 	background-color : white;
 	color            : @light-black;
-	overflow         : auto;
-}
-
-.content-login {
-	padding-top    : 1%;
-	padding-bottom : 1%;
-
-	.login-form {
-		padding-bottom : 40px;
-		width: 50%;
-		margin: auto;
-	}
-
-	.form-hr;
-
-	.credentials {
-		padding-top : 10px;
-		p {
-			font-weight   : bold;
-			margin-bottom : 7px;
-		}
-
-		.signup {
-			margin      : 30px 0;
-			font-weight : normal;
-			a {
-				font-weight : bolder;
-			}
-		}
-
-	}
-
+	min-height       : 500px;
 }
 
 .content-index {
-	.left-nav {
-		padding-top    : 1%;
-		padding-bottom : 1%;
-		width          : 49%;
-		margin-right   : 0px;
-		display        : inline-block;
-	}
+	.left-nav, .right-nav {
+		display     : inline-block;
+		float       : left;
+		min-height  : 500px;
+		width       : 49%;
+		padding-top : 1%;
 
+	}
+	.left-nav {
+		border-right : 1px dashed black;
+	}
 	.right-nav {
-		padding-top    : 1%;
-		padding-bottom : 1%;
-		width          : 49%;
-		float          : right;
-		border-left    : 1px dashed @light-black;
-		.sign-up {
-			margin-left    : 20px;
-			padding-bottom : 40px;
-			.sub {
-				color : @grey;
-			}
-			.credentials {
-				p {
-					font-weight   : bold;
-					margin-bottom : 7px;
-				}
-				.login {
-					margin      : 30px 0;
-					font-weight : normal;
-					a {
-						font-weight : bolder;
-					}
-				}
-			}
-			.form-hr;
-		}
+    	padding-left : 20px;
 	}
 }
 
 .footer {
-	.offset;
-	.github {
-		float : right;
+	width: 90%;
+	padding: 1% 5%;
+
+	.copy-rights, .github {
+		width: 50%;
+		float : left;
 	}
-	padding-top : 2%;
+	.github {
+		text-align: right;
+	}
 }
 
-a {
-  color           : @light-blue;
-  text-decoration : none;
-}
+// // mixins
+// .offset {
+// 	// padding : 0% 16%;
+// }
+// .form-hr {
+// 	hr {
+// 		height           : 1px;
+// 		border           : medium none;
+// 		background-color : #EFEFEF;
+// 	}
+// }
+
+// .input-size {
+// 	padding : 10px;
+//     width   : 300px;
+// }
+// body {
+//   padding          : 50px;
+//   font             : 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+//   background-color : @white;
+//   width            : 960px;
+//   margin           : 0;
+//   padding          : 0;
+//   background-color : @light-black;
+//   color            : @white;
+
+// }
+
+// input[type=text] {
+// 	.input-size;
+// }
+
+// input[type=password] {
+// 	.input-size;
+// }
+
+// input[type=email] {
+// 	.input-size;
+// }
+
+// input[type=submit] {
+// 	min-width        : 100px;
+// 	background-color : #3498DB;
+// 	border           : 1px solid #2980B9;
+// 	font-weight      : bold;
+// 	color            : #ECF0F1;
+// 	padding          : 12px;
+// 	outline          : 2px solid #EFEFEF;
+// 	cursor           : pointer;
+// 	font-size        : 14px;
+
+// 	&:hover{
+// 		background-color : white;
+// 		color            : #2980B9;
+// 	}
+// }
+
+
+// .header {
+// 	.offset;
+// 	color            : @white;
+// 	background-color : @dark-blue;
+// 	// padding-top      : 1%;
+// 	// padding-bottom   : 1%;
+// 	// width            : 960px;
+// 	h1 {
+// 		margin-top : 0
+// 	}
+// 	.left-nav{
+// 		// width        : 50%;
+// 		margin-right : 0px;
+// 		display      : inline-block;
+// 	}
+// 	.right-nav {
+// 		// width   : 50%;
+// 		display : inline-block;
+// 		float   : right;
+// 		nav {
+// 			margin-top : 28px;
+// 			text-align : right;
+// 		}
+// 	}
+
+// 	a {
+// 	  color           : @white;
+// 	  font-weight     : bolder;
+// 	  text-decoration : none;
+// 	}
+
+// }
+
+// .content {
+// 	.offset;
+// 	background-color : white;
+// 	color            : @light-black;
+// 	overflow         : auto;
+// }
+
+// .content-login {
+// 	padding-top    : 1%;
+// 	padding-bottom : 1%;
+
+// 	.login-form {
+// 		padding-bottom : 40px;
+// 		width: 50%;
+// 		margin: auto;
+// 	}
+
+// 	.form-hr;
+
+// 	.credentials {
+// 		padding-top : 10px;
+// 		p {
+// 			font-weight   : bold;
+// 			margin-bottom : 7px;
+// 		}
+
+// 		.signup {
+// 			margin      : 30px 0;
+// 			font-weight : normal;
+// 			a {
+// 				font-weight : bolder;
+// 			}
+// 		}
+
+// 	}
+
+// }
+
+// .content-index {
+// 	.left-nav {
+// 		padding-top    : 1%;
+// 		padding-bottom : 1%;
+// 		width          : 49%;
+// 		margin-right   : 0px;
+// 		display        : inline-block;
+// 	}
+
+// 	.right-nav {
+// 		padding-top    : 1%;
+// 		padding-bottom : 1%;
+// 		width          : 49%;
+// 		float          : right;
+// 		border-left    : 1px dashed @light-black;
+// 		.sign-up {
+// 			margin-left    : 20px;
+// 			padding-bottom : 40px;
+// 			.sub {
+// 				color : @grey;
+// 			}
+// 			.credentials {
+// 				p {
+// 					font-weight   : bold;
+// 					margin-bottom : 7px;
+// 				}
+// 				.login {
+// 					margin      : 30px 0;
+// 					font-weight : normal;
+// 					a {
+// 						font-weight : bolder;
+// 					}
+// 				}
+// 			}
+// 			.form-hr;
+// 		}
+// 	}
+// }
+
+// .footer {
+// 	.offset;
+// 	.github {
+// 		float : right;
+// 	}
+// 	padding-top : 2%;
+// }
+
+// a {
+//   color           : @light-blue;
+//   text-decoration : none;
+// }
