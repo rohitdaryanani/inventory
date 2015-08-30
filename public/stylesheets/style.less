@@ -8,6 +8,7 @@
 // Additional colors
 @grey : #999;
 
+// MAIN STYLE
 h1 {
 	margin: 0 0 10px 0;
 }
@@ -75,63 +76,50 @@ body {
 		text-align: right;
 	}
 }
+// END OF MAIN
 
-// // mixins
-// .offset {
-// 	// padding : 0% 16%;
-// }
-// .form-hr {
-// 	hr {
-// 		height           : 1px;
-// 		border           : medium none;
-// 		background-color : #EFEFEF;
-// 	}
-// }
+// INPUT / FORMS
+.input-size {
+	padding : 10px;
+    width   : 300px;
+}
 
-// .input-size {
-// 	padding : 10px;
-//     width   : 300px;
-// }
-// body {
-//   padding          : 50px;
-//   font             : 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-//   background-color : @white;
-//   width            : 960px;
-//   margin           : 0;
-//   padding          : 0;
-//   background-color : @light-black;
-//   color            : @white;
+input[type=text] {
+	.input-size;
+}
 
-// }
+input[type=password] {
+	.input-size;
+}
 
-// input[type=text] {
-// 	.input-size;
-// }
+input[type=email] {
+	.input-size;
+}
 
-// input[type=password] {
-// 	.input-size;
-// }
+input[type=submit] {
+	min-width        : 100px;
+	background-color : #3498DB;
+	border           : 1px solid #2980B9;
+	font-weight      : bold;
+	color            : #ECF0F1;
+	padding          : 12px;
+	outline          : 2px solid #EFEFEF;
+	cursor           : pointer;
+	font-size        : 14px;
 
-// input[type=email] {
-// 	.input-size;
-// }
+	&:hover{
+		background-color : white;
+		color            : #2980B9;
+	}
+}
+// END OF INPUT / FORMS
 
-// input[type=submit] {
-// 	min-width        : 100px;
-// 	background-color : #3498DB;
-// 	border           : 1px solid #2980B9;
-// 	font-weight      : bold;
-// 	color            : #ECF0F1;
-// 	padding          : 12px;
-// 	outline          : 2px solid #EFEFEF;
-// 	cursor           : pointer;
-// 	font-size        : 14px;
-
-// 	&:hover{
-// 		background-color : white;
-// 		color            : #2980B9;
-// 	}
-// }
+// COMMON
+hr {
+	height           : 1px;
+	border           : medium none;
+	background-color : #EFEFEF;
+}
 
 
 // .header {
