@@ -21,20 +21,12 @@ router.post('/', function ( req, res, end ) {
 	} )
 
 	user.save( function ( err, user ) {
-    	if( err.message.indexOf('duplicate key error') > -1 ) {
-			req.flash( 'info', 'username or email already exist.' );
-			res.redirect('/');
-			console.error( err.message )
-    	}
-
-    	if ( err.message.indexOf('Users validation failed') > -1 ) {
-    		req.flash( 'info', 'Please fill in all fields.' );
-			res.redirect('/');
-			console.error( err.message )
-    	}
-
     	if ( err ) {
-    		req.flash('ooops something went wrong, Please try again.')
+    		if ( err.message === 'Users validation failed') {
+    			req.flash( 'info', 'Please fill in all fields.' );
+    		} else if ( err.code === 11000 ) {
+    			req.flash( 'info', 'username or email already exist.' );
+    		}
     		res.redirect('/');
     		console.error(err);
     	}
