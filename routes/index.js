@@ -47,19 +47,19 @@ router.post('/login', function ( req, res, next ) {
 	if ( username === '' ) {
 		req.flash('info', 'invalid username or password');
 		res.redirect('/login');
-	} else {
-		Users.findOne( {'username' : username }, function ( err, result ) {
-			// if ( err ) return console.error( err );
-			if ( result.username === username && result.password === password) {
-				session = req.session;
-				session.username = username;
-				res.redirect('/items')
-			} else {
-				req.flash('info', 'invalid username or password');
-				res.redirect('/login');
-			}
-		} )
+		return;
 	}
+	Users.findOne( {'username' : username }, function ( err, result ) {
+		// if ( err ) return console.error( err );
+		if ( result.username === username && result.password === password) {
+			session = req.session;
+			session.username = username;
+			res.redirect('/items')
+		} else {
+			req.flash('info', 'invalid username or password');
+			res.redirect('/login');
+		}
+	} )
 
 } )
 
