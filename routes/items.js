@@ -32,6 +32,12 @@ router.post('/', function ( req, res ) {
     user        : session.username
   } )
 
+  if ( !item.productCode || !item.itemName || !item.price || !item.location ) {
+    req.flash( 'info', 'Please fill out missing field.' );
+    res.redirect("/items");
+    return;
+  }
+
   item.save( function ( err, item ) {
     if( err ) return console.error( err )
     req.flash('info', 'Item added!')
