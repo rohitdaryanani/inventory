@@ -64,7 +64,7 @@ if (app.get('env') === 'development') {
       error: err
     });
   });
-  mongoose.connect('mongodb://localhost/inventory')
+  mongoose.connect('mongodb://testfoo:testfoo@ds035613.mongolab.com:35613/inventory'||'mongodb://localhost/inventory')
 }
 
 // production error handler

@@ -44,14 +44,16 @@ router.post('/login', function ( req, res, next ) {
 	var username = req.body.username;
 	var password = bcrypt.hashSync( req.body.password, salt );
 
-	if ( username === '' ) {
+	if ( !username ) {
 		req.flash('info', 'invalid username or password');
 		res.redirect('/login');
 		return;
 	}
 	Users.findOne( {'username' : username }, function ( err, result ) {
-		// if ( err ) return console.error( err );
-		if ( result.username === username && result.password === password) {
+		if ( !result ) {
+			req.flash('info', 'Username doesnt exist');
+			res.redirect('/login');
+		} else if ( result.username === username && result.password === password) {
 			session = req.session;
 			session.username = username;
 			res.redirect('/items')
